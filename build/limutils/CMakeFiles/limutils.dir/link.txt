@@ -1,0 +1,2 @@
+/usr/bin/ar qc liblimutils.a  CMakeFiles/limutils.dir/passhandler.cpp.o CMakeFiles/limutils.dir/inputregex.cpp.o CMakeFiles/limutils.dir/PatternFiller.cpp.o CMakeFiles/limutils.dir/blowfish.cpp.o
+/usr/bin/ranlib liblimutils.a
