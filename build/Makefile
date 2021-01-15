@@ -136,6 +136,33 @@ limutils/fast:
 	$(MAKE) -f limutils/CMakeFiles/limutils.dir/build.make limutils/CMakeFiles/limutils.dir/build
 .PHONY : limutils/fast
 
+controllers/accountops.o: controllers/accountops.cc.o
+
+.PHONY : controllers/accountops.o
+
+# target to build an object file
+controllers/accountops.cc.o:
+	$(MAKE) -f CMakeFiles/LimProxy.dir/build.make CMakeFiles/LimProxy.dir/controllers/accountops.cc.o
+.PHONY : controllers/accountops.cc.o
+
+controllers/accountops.i: controllers/accountops.cc.i
+
+.PHONY : controllers/accountops.i
+
+# target to preprocess a source file
+controllers/accountops.cc.i:
+	$(MAKE) -f CMakeFiles/LimProxy.dir/build.make CMakeFiles/LimProxy.dir/controllers/accountops.cc.i
+.PHONY : controllers/accountops.cc.i
+
+controllers/accountops.s: controllers/accountops.cc.s
+
+.PHONY : controllers/accountops.s
+
+# target to generate assembly for a file
+controllers/accountops.cc.s:
+	$(MAKE) -f CMakeFiles/LimProxy.dir/build.make CMakeFiles/LimProxy.dir/controllers/accountops.cc.s
+.PHONY : controllers/accountops.cc.s
+
 controllers/maincontroller.o: controllers/maincontroller.cc.o
 
 .PHONY : controllers/maincontroller.o
@@ -162,6 +189,33 @@ controllers/maincontroller.s: controllers/maincontroller.cc.s
 controllers/maincontroller.cc.s:
 	$(MAKE) -f CMakeFiles/LimProxy.dir/build.make CMakeFiles/LimProxy.dir/controllers/maincontroller.cc.s
 .PHONY : controllers/maincontroller.cc.s
+
+controllers/pxc.o: controllers/pxc.cc.o
+
+.PHONY : controllers/pxc.o
+
+# target to build an object file
+controllers/pxc.cc.o:
+	$(MAKE) -f CMakeFiles/LimProxy.dir/build.make CMakeFiles/LimProxy.dir/controllers/pxc.cc.o
+.PHONY : controllers/pxc.cc.o
+
+controllers/pxc.i: controllers/pxc.cc.i
+
+.PHONY : controllers/pxc.i
+
+# target to preprocess a source file
+controllers/pxc.cc.i:
+	$(MAKE) -f CMakeFiles/LimProxy.dir/build.make CMakeFiles/LimProxy.dir/controllers/pxc.cc.i
+.PHONY : controllers/pxc.cc.i
+
+controllers/pxc.s: controllers/pxc.cc.s
+
+.PHONY : controllers/pxc.s
+
+# target to generate assembly for a file
+controllers/pxc.cc.s:
+	$(MAKE) -f CMakeFiles/LimProxy.dir/build.make CMakeFiles/LimProxy.dir/controllers/pxc.cc.s
+.PHONY : controllers/pxc.cc.s
 
 limutils/PatternFiller.o: limutils/PatternFiller.cpp.o
 
@@ -335,9 +389,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... LimProxy"
 	@echo "... limutils"
+	@echo "... controllers/accountops.o"
+	@echo "... controllers/accountops.i"
+	@echo "... controllers/accountops.s"
 	@echo "... controllers/maincontroller.o"
 	@echo "... controllers/maincontroller.i"
 	@echo "... controllers/maincontroller.s"
+	@echo "... controllers/pxc.o"
+	@echo "... controllers/pxc.i"
+	@echo "... controllers/pxc.s"
 	@echo "... limutils/PatternFiller.o"
 	@echo "... limutils/PatternFiller.i"
 	@echo "... limutils/PatternFiller.s"

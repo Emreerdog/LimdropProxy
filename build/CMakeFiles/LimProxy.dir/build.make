@@ -70,9 +70,22 @@ CMakeFiles/LimProxy.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LimProxy.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/erdog1/LimProxy/LimdropProxy/main.cpp -o CMakeFiles/LimProxy.dir/main.cpp.s
 
+CMakeFiles/LimProxy.dir/controllers/accountops.cc.o: CMakeFiles/LimProxy.dir/flags.make
+CMakeFiles/LimProxy.dir/controllers/accountops.cc.o: ../controllers/accountops.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/erdog1/LimProxy/LimdropProxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/LimProxy.dir/controllers/accountops.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LimProxy.dir/controllers/accountops.cc.o -c /home/erdog1/LimProxy/LimdropProxy/controllers/accountops.cc
+
+CMakeFiles/LimProxy.dir/controllers/accountops.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LimProxy.dir/controllers/accountops.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/erdog1/LimProxy/LimdropProxy/controllers/accountops.cc > CMakeFiles/LimProxy.dir/controllers/accountops.cc.i
+
+CMakeFiles/LimProxy.dir/controllers/accountops.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LimProxy.dir/controllers/accountops.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/erdog1/LimProxy/LimdropProxy/controllers/accountops.cc -o CMakeFiles/LimProxy.dir/controllers/accountops.cc.s
+
 CMakeFiles/LimProxy.dir/controllers/maincontroller.cc.o: CMakeFiles/LimProxy.dir/flags.make
 CMakeFiles/LimProxy.dir/controllers/maincontroller.cc.o: ../controllers/maincontroller.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/erdog1/LimProxy/LimdropProxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/LimProxy.dir/controllers/maincontroller.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/erdog1/LimProxy/LimdropProxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/LimProxy.dir/controllers/maincontroller.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LimProxy.dir/controllers/maincontroller.cc.o -c /home/erdog1/LimProxy/LimdropProxy/controllers/maincontroller.cc
 
 CMakeFiles/LimProxy.dir/controllers/maincontroller.cc.i: cmake_force
@@ -83,9 +96,22 @@ CMakeFiles/LimProxy.dir/controllers/maincontroller.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LimProxy.dir/controllers/maincontroller.cc.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/erdog1/LimProxy/LimdropProxy/controllers/maincontroller.cc -o CMakeFiles/LimProxy.dir/controllers/maincontroller.cc.s
 
+CMakeFiles/LimProxy.dir/controllers/pxc.cc.o: CMakeFiles/LimProxy.dir/flags.make
+CMakeFiles/LimProxy.dir/controllers/pxc.cc.o: ../controllers/pxc.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/erdog1/LimProxy/LimdropProxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/LimProxy.dir/controllers/pxc.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LimProxy.dir/controllers/pxc.cc.o -c /home/erdog1/LimProxy/LimdropProxy/controllers/pxc.cc
+
+CMakeFiles/LimProxy.dir/controllers/pxc.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LimProxy.dir/controllers/pxc.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/erdog1/LimProxy/LimdropProxy/controllers/pxc.cc > CMakeFiles/LimProxy.dir/controllers/pxc.cc.i
+
+CMakeFiles/LimProxy.dir/controllers/pxc.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LimProxy.dir/controllers/pxc.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/erdog1/LimProxy/LimdropProxy/controllers/pxc.cc -o CMakeFiles/LimProxy.dir/controllers/pxc.cc.s
+
 CMakeFiles/LimProxy.dir/limutils/PatternFiller.cpp.o: CMakeFiles/LimProxy.dir/flags.make
 CMakeFiles/LimProxy.dir/limutils/PatternFiller.cpp.o: ../limutils/PatternFiller.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/erdog1/LimProxy/LimdropProxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/LimProxy.dir/limutils/PatternFiller.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/erdog1/LimProxy/LimdropProxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/LimProxy.dir/limutils/PatternFiller.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LimProxy.dir/limutils/PatternFiller.cpp.o -c /home/erdog1/LimProxy/LimdropProxy/limutils/PatternFiller.cpp
 
 CMakeFiles/LimProxy.dir/limutils/PatternFiller.cpp.i: cmake_force
@@ -98,7 +124,7 @@ CMakeFiles/LimProxy.dir/limutils/PatternFiller.cpp.s: cmake_force
 
 CMakeFiles/LimProxy.dir/limutils/blowfish.cpp.o: CMakeFiles/LimProxy.dir/flags.make
 CMakeFiles/LimProxy.dir/limutils/blowfish.cpp.o: ../limutils/blowfish.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/erdog1/LimProxy/LimdropProxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/LimProxy.dir/limutils/blowfish.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/erdog1/LimProxy/LimdropProxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/LimProxy.dir/limutils/blowfish.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LimProxy.dir/limutils/blowfish.cpp.o -c /home/erdog1/LimProxy/LimdropProxy/limutils/blowfish.cpp
 
 CMakeFiles/LimProxy.dir/limutils/blowfish.cpp.i: cmake_force
@@ -111,7 +137,7 @@ CMakeFiles/LimProxy.dir/limutils/blowfish.cpp.s: cmake_force
 
 CMakeFiles/LimProxy.dir/limutils/inputregex.cpp.o: CMakeFiles/LimProxy.dir/flags.make
 CMakeFiles/LimProxy.dir/limutils/inputregex.cpp.o: ../limutils/inputregex.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/erdog1/LimProxy/LimdropProxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/LimProxy.dir/limutils/inputregex.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/erdog1/LimProxy/LimdropProxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/LimProxy.dir/limutils/inputregex.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LimProxy.dir/limutils/inputregex.cpp.o -c /home/erdog1/LimProxy/LimdropProxy/limutils/inputregex.cpp
 
 CMakeFiles/LimProxy.dir/limutils/inputregex.cpp.i: cmake_force
@@ -124,7 +150,7 @@ CMakeFiles/LimProxy.dir/limutils/inputregex.cpp.s: cmake_force
 
 CMakeFiles/LimProxy.dir/limutils/passhandler.cpp.o: CMakeFiles/LimProxy.dir/flags.make
 CMakeFiles/LimProxy.dir/limutils/passhandler.cpp.o: ../limutils/passhandler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/erdog1/LimProxy/LimdropProxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/LimProxy.dir/limutils/passhandler.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/erdog1/LimProxy/LimdropProxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/LimProxy.dir/limutils/passhandler.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LimProxy.dir/limutils/passhandler.cpp.o -c /home/erdog1/LimProxy/LimdropProxy/limutils/passhandler.cpp
 
 CMakeFiles/LimProxy.dir/limutils/passhandler.cpp.i: cmake_force
@@ -137,7 +163,7 @@ CMakeFiles/LimProxy.dir/limutils/passhandler.cpp.s: cmake_force
 
 CMakeFiles/LimProxy.dir/limutils/pyutils.cpp.o: CMakeFiles/LimProxy.dir/flags.make
 CMakeFiles/LimProxy.dir/limutils/pyutils.cpp.o: ../limutils/pyutils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/erdog1/LimProxy/LimdropProxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/LimProxy.dir/limutils/pyutils.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/erdog1/LimProxy/LimdropProxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/LimProxy.dir/limutils/pyutils.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LimProxy.dir/limutils/pyutils.cpp.o -c /home/erdog1/LimProxy/LimdropProxy/limutils/pyutils.cpp
 
 CMakeFiles/LimProxy.dir/limutils/pyutils.cpp.i: cmake_force
@@ -151,7 +177,9 @@ CMakeFiles/LimProxy.dir/limutils/pyutils.cpp.s: cmake_force
 # Object files for target LimProxy
 LimProxy_OBJECTS = \
 "CMakeFiles/LimProxy.dir/main.cpp.o" \
+"CMakeFiles/LimProxy.dir/controllers/accountops.cc.o" \
 "CMakeFiles/LimProxy.dir/controllers/maincontroller.cc.o" \
+"CMakeFiles/LimProxy.dir/controllers/pxc.cc.o" \
 "CMakeFiles/LimProxy.dir/limutils/PatternFiller.cpp.o" \
 "CMakeFiles/LimProxy.dir/limutils/blowfish.cpp.o" \
 "CMakeFiles/LimProxy.dir/limutils/inputregex.cpp.o" \
@@ -162,7 +190,9 @@ LimProxy_OBJECTS = \
 LimProxy_EXTERNAL_OBJECTS =
 
 LimProxy: CMakeFiles/LimProxy.dir/main.cpp.o
+LimProxy: CMakeFiles/LimProxy.dir/controllers/accountops.cc.o
 LimProxy: CMakeFiles/LimProxy.dir/controllers/maincontroller.cc.o
+LimProxy: CMakeFiles/LimProxy.dir/controllers/pxc.cc.o
 LimProxy: CMakeFiles/LimProxy.dir/limutils/PatternFiller.cpp.o
 LimProxy: CMakeFiles/LimProxy.dir/limutils/blowfish.cpp.o
 LimProxy: CMakeFiles/LimProxy.dir/limutils/inputregex.cpp.o
@@ -180,7 +210,7 @@ LimProxy: /usr/lib/x86_64-linux-gnu/libz.so
 LimProxy: /usr/lib/x86_64-linux-gnu/libssl.so
 LimProxy: /usr/lib/x86_64-linux-gnu/libcrypto.so
 LimProxy: CMakeFiles/LimProxy.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/erdog1/LimProxy/LimdropProxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable LimProxy"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/erdog1/LimProxy/LimdropProxy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable LimProxy"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/LimProxy.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
