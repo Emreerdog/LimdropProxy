@@ -76,7 +76,7 @@ void accountops::createAccount(const HttpRequestPtr& req, std::function<void (co
 	responseJson["accountName"] = name;
 	responseJson["accountSurname"] = surname;
 	responseJson["actionStatus"] = "true";
-	responseJson["activationLink"] = "192.168.1.40/activation/profile/" + uuid;
+	responseJson["activationLink"] = "192.168.1.41/pxc/activation/profile/" + uuid;
         responseJson["accountCreationDate"] = createDate;
 	responseJson["accountCreate"] = createTime;
 	auto resp = HttpResponse::newHttpJsonResponse(responseJson);
@@ -128,16 +128,13 @@ void accountops::loginAccount(const HttpRequestPtr& req, std::function<void (con
 		// Decrypt password
 		if(LRpair.first == P1 && LRpair.second == P2){
 			sessionPtr->erase("isLoggedIn");
-			sessionPtr->erase("balance");
 			sessionPtr->erase("id");
 			sessionPtr->erase("name");
 			sessionPtr->erase("surname");
 
 			bool isLoggedIn = true;
-			float balance = 0;
 			sessionPtr->insert("isLoggedIn", isLoggedIn);
 			sessionPtr->insert("email", email);
-			sessionPtr->insert("balance", balance);
 			sessionPtr->insert("id", user_id);
 			sessionPtr->insert("name", name);
 			sessionPtr->insert("surname", surname);

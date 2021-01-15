@@ -38,3 +38,21 @@ limutils/inputregex.h
 drogon/HttpController.h
 -
 
+/home/erdog1/LimProxy/LimdropProxy/controllers/maincontroller.cc
+maincontroller.h
+/home/erdog1/LimProxy/LimdropProxy/controllers/maincontroller.h
+
+/home/erdog1/LimProxy/LimdropProxy/controllers/maincontroller.h
+drogon/HttpSimpleController.h
+-
+drogon/HttpController.h
+-
+
+/home/erdog1/LimProxy/LimdropProxy/controllers/pxc.cc
+pxc.h
+/home/erdog1/LimProxy/LimdropProxy/controllers/pxc.h
+
+/home/erdog1/LimProxy/LimdropProxy/controllers/pxc.h
+drogon/HttpController.h
+-
+
