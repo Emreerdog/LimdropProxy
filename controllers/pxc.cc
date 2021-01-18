@@ -18,7 +18,7 @@ void pxc::showPage(const HttpRequestPtr& req,std::function<void (const HttpRespo
 			newPath.push_back(*It);
 		}
 	}
-
+	
 	auto sessionPtr = req->session();
 	if(sessionPtr->find("isLoggedIn")){
 		std::string id = sessionPtr->get<std::string>("id");
@@ -26,8 +26,6 @@ void pxc::showPage(const HttpRequestPtr& req,std::function<void (const HttpRespo
 		std::string surname = sessionPtr->get<std::string>("surname");
 		std::string email = sessionPtr->get<std::string>("email");
 
-		std::cout << id << std::endl;
-		std::cout << name << std::endl;
 		req->addHeader("isLogged", "true");
 		req->addHeader("id", id);
 		req->addHeader("name", name);

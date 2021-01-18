@@ -3,7 +3,6 @@ void maincontroller::asyncHandleHttpRequest(const HttpRequestPtr& req, std::func
 {
 	req->addHeader("fromProxy", "true");
 	std::string forwardString = "http://192.168.1.21";
-	std::cout << req->getPath() << std::endl;
 	auto sessionPtr = req->session();
 
 	if(sessionPtr->find("isLoggedIn")){
