@@ -2,9 +2,18 @@
 #include <limutils/passhandler.h>
 #include <limutils/PatternFiller.h>
 #include <limutils/inputregex.h>
+#include <limutils/pyutils.h>
 
-void accountops::createAccount(const HttpRequestPtr& req, std::function<void (const HttpResponsePtr &)> &&callback, std::string email, std::string name, std::string surname, std::string pass, std::string passCheck){
-	Json::Value responseJson;	
+void accountops::createAccount(const HttpRequestPtr& req, std::function<void (const HttpResponsePtr &)> &&callback, std::string email, std::string name, std::string surname, std::string pass, std::string passCheck, std::string terms, std::string receiveMail){
+	Json::Value responseJson;
+	if(terms != "true"){
+		responseJson["feedback"] = "Üye olmak için kullanıcı sözleşmesi işaretlenmelidir";
+		responseJson["actionStatus"] = "false";
+		auto resp = HttpResponse::newHttpJsonResponse(responseJson);
+		callback(resp);
+		return;
+	}	
+	
 	if(pass != passCheck){
 		// Password doesn't match
 		responseJson["feedback"] = "Parola uyumlu değil";
@@ -66,19 +75,51 @@ void accountops::createAccount(const HttpRequestPtr& req, std::function<void (co
 	}
 
 	std::string uuid = drogon::utils::getUuid();
-	std::string queryStart = "INSERT INTO accounts(L, R, P1, P2, email, name, surname, accountCreateDate, accountCreateTime, uuid, isverified) VALUES";
-	std::string queryEnd = "(" + L + "," + R + ",'" + LE + "','" + RE +"','" + email + "','" + name + "', '" + surname +"', '" + createDate + "','" + createTime+ "', '" + uuid + "', FALSE)";
+	std::string queryStart = "INSERT INTO accounts(L, R, P1, P2, email, name, surname, accountCreateDate, accountCreateTime, uuid, isverified, termsaccepted, receivemails) VALUES";
+	std::string queryEnd = "(" + L + "," + R + ",'" + LE + "','" + RE +"','" + email + "','" + name + "', '" + surname +"', '" + createDate + "','" + createTime+ "', '" + uuid + "', FALSE, " + terms + ", "+ receiveMail + ")";
       	std::string totalQuery = queryStart + queryEnd;
 	clientPtr->execSqlAsyncFuture(totalQuery);
+
 
 	responseJson["feedback"] = "Hesap oluşturuldu";
 	responseJson["accountEmail"] = email;
 	responseJson["accountName"] = name;
 	responseJson["accountSurname"] = surname;
 	responseJson["actionStatus"] = "true";
-	responseJson["activationLink"] = "192.168.1.41/pxc/activation/profile/" + uuid;
+	responseJson["activationLink"] = "http://34.91.161.110/pxc/activation/profile/" + uuid;
         responseJson["accountCreationDate"] = createDate;
 	responseJson["accountCreate"] = createTime;
+
+	Json::Value responseForPY;
+	responseForPY["To"] = email;
+	responseForPY["Subject"] = "Onay linki";
+
+	std::string htmlMsg = "<html><head></head><body><p>Hi!<br>How are you?<br> Here is the<a href='" + responseJson["activationLink"].asString() + "'</a>you wanted</p></body></html>";
+	PyObject* messageJson = LIM_PSTR(responseForPY.toStyledString().c_str());
+	PyObject* messageHTML = LIM_PSTR(htmlMsg.c_str());
+	PyObject* imports = PyImport_ImportModule("mailer");
+        PyObject* func = PyObject_GetAttrString(imports, "sendmail");
+	PyObject* functionArgs = LIM_PMAKE_TUPLE(3);
+	LIM_PADD_TUPLE(functionArgs, 0, messageJson);
+	LIM_PADD_TUPLE(functionArgs, 1, messageHTML);
+	LIM_PADD_TUPLE(functionArgs, 2, LimPY_Inits::getMailServer());
+	PyObject* resultOBJ = LIM_PFUNC_ARGS(func, functionArgs);
+	if (PyErr_Occurred()) {
+	    
+            std::cout << "Something is not right with server trying to reconnect" << std::endl;
+	    if(LimPY_Inits::connectMailServer()){
+		    std::cout << "Reconnected to server" << std::endl;
+	    }
+        }
+        else {
+            std::cout << "Mail send" << std::endl;
+        }
+	Py_CLEAR(messageJson);
+	Py_CLEAR(messageHTML);
+	Py_CLEAR(imports);
+	Py_CLEAR(func);
+	Py_CLEAR(resultOBJ);
+
 	auto resp = HttpResponse::newHttpJsonResponse(responseJson);
 	callback(resp);
 }
@@ -138,7 +179,6 @@ void accountops::loginAccount(const HttpRequestPtr& req, std::function<void (con
 			sessionPtr->insert("id", user_id);
 			sessionPtr->insert("name", name);
 			sessionPtr->insert("surname", surname);
-
 			auto date = trantor::Date::now();
 			std::string lastLoginDate = date.toCustomedFormattedString("%Y-%m-%d");
 			std::string lastLoginTime = date.toCustomedFormattedString("%H:%M:%S");
@@ -146,6 +186,11 @@ void accountops::loginAccount(const HttpRequestPtr& req, std::function<void (con
 			responseJson["lastLoginDate"] = lastLoginDate;
 			responseJson["lastLoginTime"] = lastLoginTime;
 	        	responseJson["actionStatus"] = "true";
+			responseJson["rsv_num"] = sessionPtr->sessionId();
+			std::string queryStart = "INSERT INTO reserved_acc(user_id, rsv_num, last_login, is_logged, name, surname, email) VALUES (";
+        		std::string queryEnd = user_id + ", '" + sessionPtr->sessionId() + "', '" + lastLoginDate + "', TRUE, '" + name + "', '" + surname + "', '" + email + "')";
+        		std::string totalQuery = queryStart + queryEnd;
+        		auto f = clientPtr->execSqlAsyncFuture(totalQuery);
 			auto resp = HttpResponse::newHttpJsonResponse(responseJson);
 			callback(resp);
 			return;
@@ -153,6 +198,7 @@ void accountops::loginAccount(const HttpRequestPtr& req, std::function<void (con
 	}
 	responseJson["feedback"] = "Parola Hatalı";
 	responseJson["actionStatus"] = "false";
+	drogon::Cookie cook1("checkdrogon", responseJson["actionStatus"].asString());
 	auto resp = HttpResponse::newHttpJsonResponse(responseJson);
 	callback(resp);
 }

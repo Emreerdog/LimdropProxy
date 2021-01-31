@@ -40,3 +40,29 @@ using namespace std;
         }
     }
 
+PyObject* LimPY_Inits::mailServerObject = nullptr;
+
+PyObject* LimPY_Inits::getMailServer()
+{
+    return mailServerObject;
+}
+
+bool LimPY_Inits::connectMailServer()
+{
+    PyObject* imports = PyImport_ImportModule("mailer");
+    PyObject* func = PyObject_GetAttrString(imports, "connectmailserver");
+    PyObject* calledOBJ = PyObject_CallNoArgs(func);
+
+    mailServerObject = calledOBJ;
+    if (PyErr_Occurred()) {
+
+        std::cout << "Excetion occured during connection to smtp" << std::endl;
+        Py_CLEAR(imports);
+        Py_CLEAR(func);
+        return false;
+    }
+
+    Py_CLEAR(imports);
+    Py_CLEAR(func);
+    return true;
+}

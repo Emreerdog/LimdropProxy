@@ -1,4 +1,4 @@
-# Install script for directory: /home/erdog1/LimProxy/LimdropProxy/limutils
+# Install script for directory: /home/eremmustaf/LimdropProxy/limutils
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -6,5 +6,5 @@ CXX_FLAGS =
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/erdog1/LimProxy/LimdropProxy/build -I/home/erdog1/LimProxy/LimdropProxy/PyLib/python3.9 -I/home/erdog1/LimProxy/LimdropProxy -isystem /usr/include/jsoncpp 
+CXX_INCLUDES = -I/home/eremmustaf/LimdropProxy/build -I/home/eremmustaf/LimdropProxy/PyLib/python3.9 -I/home/eremmustaf/LimdropProxy -isystem /usr/include/jsoncpp 
 

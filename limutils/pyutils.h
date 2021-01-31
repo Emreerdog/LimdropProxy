@@ -23,9 +23,13 @@ typedef PyObject* POBJECT;
 #define LIM_PSIZE_TUPLE(_obj) (PyTuple_Size(_obj));
 #define LIM_PRESIZE_TUPLE(_obj, _newsize) (_PyTuple_Resize(_obj));
 
-namespace PC_TILL {
-    const char* toString(POBJECT o);
-    long toLong(POBJECT o);
-    double toDouble(POBJECT o);
-}
+class LimPY_Inits {
+public:
+    static PyObject* getMailServer();
+    static bool connectMailServer();
+
+
+private:
+    static PyObject* mailServerObject;
+};
 
