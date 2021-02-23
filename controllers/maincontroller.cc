@@ -24,7 +24,7 @@ void maincontroller::asyncHandleHttpRequest(const HttpRequestPtr& req, std::func
 		if(reserveNum != ""){
 			std::cout << "database action" << std::endl;
 			auto clientPtr = drogon::app().getDbClient();
-        		std::string totalQuery = "SELECT user_id, name, surname, email, is_logged FROM reserved_acc WHERE rsv_num='" + reserveNum + "'";
+        		std::string totalQuery = "SELECT id, name, surname, email, is_logged FROM reserved_acc WHERE rsv_num='" + reserveNum + "'";
         		auto f = clientPtr->execSqlAsyncFuture(totalQuery);
 			auto r = f.get();
 			for(auto row : r){

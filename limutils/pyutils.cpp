@@ -49,6 +49,9 @@ PyObject* LimPY_Inits::getMailServer()
 
 bool LimPY_Inits::connectMailServer()
 {
+    if(mailServerObject){
+    	Py_CLEAR(mailServerObject);
+    }
     PyObject* imports = PyImport_ImportModule("mailer");
     PyObject* func = PyObject_GetAttrString(imports, "connectmailserver");
     PyObject* calledOBJ = PyObject_CallNoArgs(func);

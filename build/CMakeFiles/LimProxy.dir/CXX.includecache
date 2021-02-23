@@ -546,13 +546,41 @@ cpython/unicodeobject.h
 
 ../PyLib/python3.9/weakrefobject.h
 
+../limutils/PatternFiller.h
+string
+-
+vector
+-
+stdarg.h
+-
+
+../limutils/inputregex.h
+string
+-
+
+../limutils/passhandler.h
+string
+-
+utility
+-
+
 ../limutils/pyutils.h
 Python.h
 -
 
-/home/eremmustaf/LimdropProxy/main.cpp
-drogon/drogon.h
+/home/eremmustaf/LimdropProxy/controllers/accountops.cc
+accountops.h
+/home/eremmustaf/LimdropProxy/controllers/accountops.h
+limutils/passhandler.h
+-
+limutils/PatternFiller.h
+-
+limutils/inputregex.h
 -
 limutils/pyutils.h
+-
+
+/home/eremmustaf/LimdropProxy/controllers/accountops.h
+drogon/HttpController.h
 -
 

@@ -108,7 +108,13 @@ void accountops::createAccount(const HttpRequestPtr& req, std::function<void (co
 	    
             std::cout << "Something is not right with server trying to reconnect" << std::endl;
 	    if(LimPY_Inits::connectMailServer()){
+		    // Change the value
+		    LIM_PADD_TUPLE(functionArgs, 2, LimPY_Inits::getMailServer());
+		    resultOBJ = LIM_PFUNC_ARGS(func, functionArgs); 
 		    std::cout << "Reconnected to server" << std::endl;
+		    if(PyErr_Occurred()){
+			    std::cout << "Couldn't send email somehow" << std::endl;
+		    }
 	    }
         }
         else {
@@ -187,10 +193,23 @@ void accountops::loginAccount(const HttpRequestPtr& req, std::function<void (con
 			responseJson["lastLoginTime"] = lastLoginTime;
 	        	responseJson["actionStatus"] = "true";
 			responseJson["rsv_num"] = sessionPtr->sessionId();
-			std::string queryStart = "INSERT INTO reserved_acc(user_id, rsv_num, last_login, is_logged, name, surname, email) VALUES (";
-        		std::string queryEnd = user_id + ", '" + sessionPtr->sessionId() + "', '" + lastLoginDate + "', TRUE, '" + name + "', '" + surname + "', '" + email + "')";
-        		std::string totalQuery = queryStart + queryEnd;
-        		auto f = clientPtr->execSqlAsyncFuture(totalQuery);
+			
+			std::string queryStart0 = "SELECT id FROM reserved_acc WHERE id=" + user_id;
+			auto f0 = clientPtr->execSqlAsyncFuture(queryStart0);
+			auto r0 = f0.get();
+			if(r0.size() == 0){
+				// Means it was logged in once
+				std::string queryStart1 = "INSERT INTO reserved_acc(id, rsv_num, last_login, is_logged, name, surname, email) VALUES (";
+                        	std::string queryEnd1 = user_id + ", '" + sessionPtr->sessionId() + "', '" + lastLoginDate + "', TRUE, '" + name + "', '" + surname + "', '" + email + "')";
+                        	
+				std::string totalQuery1 = queryStart1 + queryEnd1;
+                        	auto f1 = clientPtr->execSqlAsyncFuture(totalQuery1);
+			}
+			else{
+				std::string queryStart2 = "UPDATE reserved_acc SET id=" + user_id + ", rsv_num='" + sessionPtr->sessionId() + "', last_login='"+ lastLoginDate + "', is_logged=TRUE, name='" + name + "', surname='" + surname + "', email='" + email + "' WHERE id=" + user_id;
+				auto f2 = clientPtr->execSqlAsyncFuture(queryStart2);
+			}
+
 			auto resp = HttpResponse::newHttpJsonResponse(responseJson);
 			callback(resp);
 			return;
@@ -198,7 +217,27 @@ void accountops::loginAccount(const HttpRequestPtr& req, std::function<void (con
 	}
 	responseJson["feedback"] = "Parola Hatalı";
 	responseJson["actionStatus"] = "false";
-	drogon::Cookie cook1("checkdrogon", responseJson["actionStatus"].asString());
 	auto resp = HttpResponse::newHttpJsonResponse(responseJson);
 	callback(resp);
 }
+
+void accountops::logout(const HttpRequestPtr& req, std::function<void (const HttpResponsePtr &)> &&callback){
+	auto sessionPtr = req->session();
+	Json::Value responseJson;
+	if(sessionPtr->find("isLoggedIn")){
+		sessionPtr->erase("isLoggedIn");
+		sessionPtr->erase("id");
+                sessionPtr->erase("name");
+                sessionPtr->erase("surname");
+		sessionPtr->erase("email");
+		responseJson["feedback"] = "Başarıyle çıkış yapıldı";
+		responseJson["actionStatus"] = "true";
+		auto resp = HttpResponse::newHttpJsonResponse(responseJson);
+		callback(resp);
+		return;
+	}
+	responseJson["feedback"] = "Hesaba giriş yapılmamış";
+	responseJson["actionStatus"] = "false";
+	auto resp = HttpResponse::newHttpJsonResponse(responseJson);
+	callback(resp);
+}		

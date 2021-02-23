@@ -37,7 +37,7 @@ void pxc::showPage(const HttpRequestPtr& req,std::function<void (const HttpRespo
 		std::string reserveNum = req->getCookie("rsv_num");
                 if(reserveNum != ""){
                         auto clientPtr = drogon::app().getDbClient();
-                        std::string totalQuery = "SELECT user_id, name, surname, email, is_logged FROM reserved_acc WHERE rsv_num='" + reserveNum + "'";
+                        std::string totalQuery = "SELECT id, name, surname, email, is_logged FROM reserved_acc WHERE rsv_num='" + reserveNum + "'";
                         auto f = clientPtr->execSqlAsyncFuture(totalQuery);
                         auto r = f.get();
                         for(auto row : r){
