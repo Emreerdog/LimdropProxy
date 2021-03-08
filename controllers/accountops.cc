@@ -39,6 +39,14 @@ void accountops::createAccount(const HttpRequestPtr& req, std::function<void (co
 		callback(resp);
 		return;
 	}
+
+	if(name == "" || surname == ""){
+                responseJson["feedback"] = "İsim soyisim boş bırakılamaz";
+                responseJson["actionStatus"] = "false";
+                auto resp = HttpResponse::newHttpJsonResponse(responseJson);
+                callback(resp);
+                return;
+	}
 	auto sessionPtr = req->session();
 
 	PasswordHandler passHandler(pass, Mode::PS_ENCRYPT);
